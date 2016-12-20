@@ -1,0 +1,14 @@
+<h2>All Albums</h2>
+
+<% for album in @albums %>
+
+  <p>Name: <%= album.name() %></p>
+  <p>Artist: <%= Album.artist(album.artist_id)['name'] %></p>
+  <p>Genre: <%= album.genre() %></p>
+  <p>Quantity: <%= album.quantity() %></p>
+  <hr>
+<% end %>
+
+<a href="/album/create">Add Albums</a>
+<a href="/album/search">Search For Albums</a>
+<a href="/album/update">Update Albums</a>
