@@ -36,22 +36,14 @@ class Album
   def self.find_by_name(name)
     sql = "
       SELECT * FROM albums
-      WHERE name = #{name};
+      WHERE name='#{name}';
     "
     albums = SqlRunner.run(sql)
-    result = Album.new(albums.first)
+    result = Album.new( albums.first)
     return result
+
   end
 
-  def self.find_by_genre(genre)
-    sql = "
-      SELECT * FROM albums
-      WHERE genre = #{genre};
-    "
-    genre = SqlRunner.run(sql)
-    result = Album.new(genre.first)
-    return result
-  end
 
   def self.destroy(id)
      sql = "DELETE FROM albums where id = #{id}"

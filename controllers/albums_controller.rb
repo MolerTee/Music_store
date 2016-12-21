@@ -63,24 +63,25 @@ post '/albums/:id' do
 end
 
 get '/album/search' do
-  @artists = Artist.all()
   @albums = Album.all()
   erb(:"albums/album_search")
 end
 
-get '/album/search/:name' do
+post '/album/display' do
+  @result = Album.find_by_name( params[:album_name].to_s )
+  erb(:"albums/album_display")
+end
+
+post '/album/display/:album_name' do
   print params
 
-  Album.find_by_name( params )
+  Album.find_by_name( params[:album_name] )
+
+
+  redirect "/album/album_display"
   
 end
 
-get '/album/search/:genre' do
-  
-  print params
 
-  Album.find_by_name( params )
-
-end
 
 

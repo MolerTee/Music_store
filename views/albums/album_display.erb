@@ -1,0 +1,7 @@
+<h2>Search Results:</h2>
+
+<p>Name: <%= @result.name() %></p>
+<p>Artist: <%= Album.artist(@result.artist_id)['name'] %></p>
+<p>Genre: <%= @result.genre() %></p>
+<p>Quantity: <%= @result.quantity() %></p>
+<a href="/album/<%= @result.id()%>/update">Update Album</a>
