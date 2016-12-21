@@ -6,6 +6,7 @@
   <p>Artist: <%= Album.artist(album.artist_id)['name'] %></p>
   <p>Genre: <%= album.genre() %></p>
   <p>Quantity: <%= album.quantity() %></p>
+  <a href="/album/<%= album.id()%>/update">Update Album</a>
   <hr>
 <% end %>
 

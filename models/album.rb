@@ -28,8 +28,9 @@ class Album
     sql = "
       SELECT * FROM albums
       WHERE id = #{id};"
-    album = SqlRunner.run(sql)[0]
-    return album
+    albums = SqlRunner.run(sql)
+    result = Album.new(albums.first)
+    return result
   end
 
   def self.destroy(id)
@@ -54,11 +55,9 @@ class Album
     return artist_name
   end
 
-
-
-
-
-
-
+  def self.update(options)
+    sql = "UPDATE albums SET (name, genre, quantity, artist_id) = ('#{options['name']}','#{options['genre']}',#{options['quantity']}, #{options['artist_id']}) WHERE id = #{options['id']};"
+    SqlRunner.run(sql)
+  end
 
 end

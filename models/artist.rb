@@ -24,8 +24,9 @@ class Artist
     sql = "
       SELECT * FROM artists
       WHERE id = #{id};"
-    artist = SqlRunner.run(sql)[0]
-    return artist
+    artists = SqlRunner.run(sql)
+    result = Artist.new(artists.first)
+    return result
   end
 
   def self.find_by_name(name)
@@ -46,4 +47,8 @@ class Artist
     SqlRunner.run( sql )
   end
 
+  def self.update(id)
+    sql = "UPDATE artists SET (name) = ('#{name}') WHERE id = #{id};"
+    SqlRunner.run(sql)
+  end
 end

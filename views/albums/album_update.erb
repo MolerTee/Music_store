@@ -1,0 +1,19 @@
+<h1>Update Album</h1>
+
+<form action="/albums/<%= @album.id %>" method="post">
+  Artist name:<br>
+  <select name="artist_id">
+    <% @artists.each do |artist| %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+    <% end %>
+  </select>
+  <br>
+  Album name:<br>
+  <input type="text" name="name" value="<%= @album.name() %>"/><br>
+  Genre:<br>
+  <input type="text" name="genre" value="<%= @album.genre() %>"/><br>
+  Quantity:<br>
+  <input type="number" name="quantity" value="<%= @album.quantity() %>"/><br>
+  <input type="submit" value="Save Changes">
+</form>
+

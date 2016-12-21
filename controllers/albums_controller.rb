@@ -33,6 +33,14 @@ post '/album' do
   erb(:"albums/album")
 end
 
+
+get '/album/:id/update' do
+  id = params[:id].to_i
+  @album = Album.find_by_id(id)
+  @artists = Artist.all()
+  erb(:"albums/album_update")
+end
+
 get'/album/create' do
   @artists = Artist.all()
   @albums = Album.all()
@@ -42,12 +50,21 @@ end
 get '/album/update' do
   @artists = Artist.all()
   @albums = Album.all()
-  erberb(:"albums/album_update")
+  erb(:"albums/:id/album_update")
+end
+
+post '/albums/:id' do
+
+  print params
+
+  Album.update( params )
+
+  redirect "/album"
 end
 
 get '/album/search' do
   @artists = Artist.all()
   @albums = Album.all()
-  erberb(:"albums/album_search")
+  erb(:"albums/album_search")
 end
 
