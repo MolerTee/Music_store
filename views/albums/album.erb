@@ -1,5 +1,8 @@
 <h2>All Albums</h2>
 
+<a href="/album/create">Add Albums</a>
+<a href="/album/search">Search For Albums</a>
+
 <% for album in @albums %>
 
   <p>Name: <%= album.name() %></p>
@@ -10,6 +13,5 @@
   <hr>
 <% end %>
 
-<a href="/album/create">Add Albums</a>
-<a href="/album/search">Search For Albums</a>
-<a href="/album/update">Update Albums</a>
+
+

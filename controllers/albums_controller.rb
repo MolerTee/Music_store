@@ -68,3 +68,19 @@ get '/album/search' do
   erb(:"albums/album_search")
 end
 
+get '/album/search/:name' do
+  print params
+
+  Album.find_by_name( params )
+  
+end
+
+get '/album/search/:genre' do
+  
+  print params
+
+  Album.find_by_name( params )
+
+end
+
+

@@ -1,6 +1,6 @@
 <h2>Album Search:</h2>
 
-<form action= "/album" method="post">
+<form action= "/album/search" method="get">
 <fieldset>
   <legend>Search Album Name:</legend>
   Album name:
@@ -8,7 +8,10 @@
   
   <input type="submit" value="Submit">
 </fieldset>
+</form>
 <br>
+
+<form action="/album/search" method="get">
 <fieldset>
   <legend>Search genre</legend>
   Genre:
